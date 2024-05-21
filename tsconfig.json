@@ -21,8 +21,10 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node"]
   },
-  "include": ["src/**/*.ts", "index.ts", "sync.ts"],
+  // "include": ["src/**/*.ts", "index.ts", "sync.ts", "env.ts"],
+  "include": ["src/**/*.ts", "./*.ts"],
   "exclude": ["node_modules", "dist"]
 }

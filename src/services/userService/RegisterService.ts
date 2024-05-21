@@ -2,7 +2,7 @@ import { Request } from 'express'
 
 import UserRepository from '../../repository/userRepository'
 
-import AppError from '../../Errors/AppError'
+import AppError from '../../errors/AppError'
 
 import bcrypt from 'bcrypt'
 import createUserToken from '../../helpers/createUserToken'

@@ -1,16 +1,15 @@
-import dotenv from 'dotenv'
-
 import cors from 'cors'
 import express from 'express'
 
 import Mainroutes from './src/routes/main.routes'
 
-import { sync } from './sync'
-dotenv.config()
+import { sync } from './src/shared/sync'
+import { env } from './src/shared/env'
 
 const app = express()
 
-const PORT = 5000 || process.env.PORT
+const PORT = env.PORT
+// const PORT = process.env.PORT || 5000
 
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
 
@@ -19,6 +18,9 @@ app.use(express.static('public'))
 app.use(express.json())
 
 app.use(Mainroutes)
+
+// console.log(env.JWT_SECRET)
+// console.log(process.env.JWT_SECRET)
 
 async function startServer() {
   try {

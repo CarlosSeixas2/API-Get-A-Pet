@@ -19,4 +19,14 @@ export default class UserRepository {
 
     return query
   }
+
+  static async findById(id: number) {
+    const query = await user.findByPk(id, {
+      attributes: {
+        exclude: ['password'],
+      },
+    })
+
+    return query
+  }
 }
