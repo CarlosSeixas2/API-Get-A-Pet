@@ -1,4 +1,8 @@
-import user from '../models/user'
+import jwt from 'jsonwebtoken'
+
+import user from '@models/user'
+
+import { env } from '@shared/env'
 
 interface IUserRegisterInterface {
   name: string
@@ -6,6 +10,10 @@ interface IUserRegisterInterface {
   email: string
   password: string
   avatar: string
+}
+
+interface IUserToken {
+  id: number
 }
 
 export default class UserRepository {
@@ -26,6 +34,22 @@ export default class UserRepository {
         exclude: ['password'],
       },
     })
+
+    return query
+  }
+
+  static async update(id: number, data: Partial<IUserRegisterInterface>) {
+    await user.update(data, { where: { id } })
+
+    const query = await this.findById(id)
+
+    return query
+  }
+
+  static async getUserByToken(token: string) {
+    const decoded = jwt.verify(token, env.JWT_SECRET) as IUserToken
+
+    const query = await this.findById(decoded.id)
 
     return query
   }

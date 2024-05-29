@@ -1,7 +1,7 @@
 import express from 'express'
-import UserController from '../controllers/UserController'
+import UserController from '@controllers/UserController'
 
-import { VerifyTokenAcess } from '../middleware/VerifyTokenAcess'
+import VerifyTokenAcess from '@middlewares/VerifyTokenAcess'
 
 const Userrouter = express.Router()
 

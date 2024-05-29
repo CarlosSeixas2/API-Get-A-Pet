@@ -1,4 +1,5 @@
 import jwt, { Secret } from 'jsonwebtoken'
+import { env } from '@shared/env'
 
 interface IUser {
   id: number
@@ -18,6 +19,9 @@ const createUserToken = async (user: IUser) => {
       id: user.id,
     },
     secretOrPrivateKey,
+    {
+      expiresIn: env.expiresIn,
+    },
   )
 
   return {

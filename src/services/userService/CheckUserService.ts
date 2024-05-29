@@ -1,8 +1,11 @@
 import { Request } from 'express'
 import jwt, { JwtPayload } from 'jsonwebtoken'
-import getToken from '../../helpers/getToken'
-import UserRepository from '../../repository/userRepository'
-import { env } from '../../shared/env'
+
+import getToken from '@utils/getToken'
+
+import UserRepository from '@repository/userRepository'
+
+import { env } from '@shared/env'
 
 interface IUser extends JwtPayload {
   id: number

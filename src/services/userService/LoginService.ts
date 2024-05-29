@@ -2,9 +2,11 @@ import { Request } from 'express'
 
 import bcrypt from 'bcrypt'
 
-import AppError from '../../errors/AppError'
-import UserRepository from '../../repository/userRepository'
-import createUserToken from '../../helpers/createUserToken'
+import AppError from '@errors/AppError'
+
+import UserRepository from '@repository/userRepository'
+
+import createUserToken from '@utils/createUserToken'
 
 interface ResponseTokenUser {
   message: string

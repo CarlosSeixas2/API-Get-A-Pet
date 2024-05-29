@@ -5,6 +5,7 @@ dotenv.config()
 const envSchema = z.object({
   JWT_SECRET: z.string(),
   PORT: z.coerce.number().default(5000),
+  expiresIn: z.string().default('1d'),
 })
 
 const _env = envSchema.safeParse(process.env)

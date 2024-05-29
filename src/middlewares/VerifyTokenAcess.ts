@@ -1,7 +1,9 @@
-import jwt from 'jsonwebtoken'
 import { Request, Response, NextFunction } from 'express'
-import getToken from '../helpers/getToken'
-import { env } from '../shared/env'
+import jwt from 'jsonwebtoken'
+
+import getToken from '@utils/getToken'
+
+import { env } from '@shared/env'
 
 declare module 'express-serve-static-core' {
   interface Request {
@@ -9,11 +11,7 @@ declare module 'express-serve-static-core' {
   }
 }
 
-export const VerifyTokenAcess = (
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
+const VerifyTokenAcess = (req: Request, res: Response, next: NextFunction) => {
   if (!req.headers.authorization) {
     return res.json({ message: 'Acesso Bloqueado' })
   }
@@ -33,3 +31,5 @@ export const VerifyTokenAcess = (
     return res.json({ message: 'Token inválido' })
   }
 }
+
+export default VerifyTokenAcess

@@ -1,6 +1,8 @@
 import cors from 'cors'
 import express from 'express'
 
+import 'module-alias/register'
+
 import Mainroutes from './src/routes/main.routes'
 
 import { sync } from './src/shared/sync'
