@@ -1,6 +1,6 @@
 import { Request } from 'express'
 
-import PetRepository from '@repository/petRepository'
+import PetRepository from '@repository/pet-repository'
 
 export default class FindPetByIdService {
   static async execute(req: Request) {

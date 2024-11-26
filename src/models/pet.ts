@@ -3,29 +3,37 @@ import { sequelize } from '../db/conn'
 
 interface PetAttributes {
   id: number
+  name: string
   age: number
   description: string
   weight: number
   color: string
   images: string
-  userId: number
-  adopted: boolean
+  available: boolean
+  user: number
+  adopter: number
 }
 
-interface PetCreationAttributes extends Optional<PetAttributes, 'id'> {}
+interface PetCreationAttributes
+  extends Optional<
+    PetAttributes,
+    'id' | 'description' | 'available' | 'user' | 'adopter'
+  > {}
 
 class Pet
   extends Model<PetAttributes, PetCreationAttributes>
   implements PetAttributes
 {
   public id!: number
+  public name!: string
   public age!: number
   public description!: string
   public weight!: number
   public color!: string
   public images!: string
-  public userId!: number
-  public adopted!: boolean
+  public available!: boolean
+  public user!: number
+  public adopter!: number
 }
 
 Pet.init(
@@ -35,33 +43,32 @@ Pet.init(
       autoIncrement: true,
       primaryKey: true,
     },
+    name: {
+      type: new DataTypes.STRING(255),
+    },
     age: {
       type: new DataTypes.INTEGER(),
-      allowNull: false,
     },
     description: {
       type: new DataTypes.STRING(255),
-      allowNull: false,
     },
     weight: {
       type: new DataTypes.INTEGER(),
-      allowNull: false,
     },
     color: {
       type: new DataTypes.STRING(255),
-      allowNull: false,
     },
     images: {
       type: new DataTypes.STRING(255),
-      allowNull: false,
     },
-    userId: {
-      type: new DataTypes.INTEGER(),
-      allowNull: false,
-    },
-    adopted: {
+    available: {
       type: new DataTypes.BOOLEAN(),
-      allowNull: false,
+    },
+    user: {
+      type: new DataTypes.INTEGER(),
+    },
+    adopter: {
+      type: new DataTypes.INTEGER(),
     },
   },
   {

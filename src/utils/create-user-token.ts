@@ -6,7 +6,7 @@ interface IUser {
   name: string
   phone: string
   email: string
-  avatar: string
+  image: string
   password: string
 }
 
@@ -20,7 +20,7 @@ const createUserToken = async (user: IUser) => {
     },
     secretOrPrivateKey,
     {
-      expiresIn: env.expiresIn,
+      expiresIn: env.EXPIRESIN,
     },
   )
 

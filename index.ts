@@ -10,7 +10,7 @@ import { env } from './src/shared/env'
 
 const app = express()
 
-const PORT = env.PORT
+const PORT = env.PORT || 5000
 // const PORT = process.env.PORT || 5000
 
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))

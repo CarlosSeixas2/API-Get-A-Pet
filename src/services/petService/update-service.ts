@@ -1,7 +1,7 @@
 import { Request } from 'express'
 
-import AppError from '@errors/AppError'
-import PetRepository from '@repository/petRepository'
+import AppError from '@errors/app-error'
+import PetRepository from '@repository/pet-repository'
 
 export default class UpdateService {
   static async execute(req: Request) {

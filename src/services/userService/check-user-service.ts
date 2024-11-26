@@ -1,9 +1,9 @@
 import { Request } from 'express'
 import jwt, { JwtPayload } from 'jsonwebtoken'
 
-import getToken from '@utils/getToken'
+import getToken from '@utils/get-token'
 
-import UserRepository from '@repository/userRepository'
+import UserRepository from '@repository/user-repository'
 
 import { env } from '@shared/env'
 

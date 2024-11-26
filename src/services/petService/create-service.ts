@@ -1,8 +1,9 @@
-import getToken from '@utils/getToken'
+import getToken from '@utils/get-token'
 import { Request, Response } from 'express'
 
-import UserRepository from '@repository/userRepository'
-import AppError from '@errors/AppError'
+import UserRepository from '@repository/user-repository'
+import AppError from '@errors/app-error'
+import PetRepository from '@repository/pet-repository'
 
 export default class CreateService {
   static async execute(req: Request, res: Response) {
@@ -16,7 +17,7 @@ export default class CreateService {
 
     const token = getToken(req)
 
-    const user = await UserRepository.findByToken(token)
+    const user = await UserRepository.getUserByToken(token)
 
     if (!user) {
       throw new AppError('Usuário não encontrado!', 404)

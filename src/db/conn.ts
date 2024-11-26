@@ -1,12 +1,9 @@
-import { Sequelize } from 'sequelize';
+import { Sequelize } from 'sequelize'
 
-export const sequelize = new Sequelize({
-  dialect: 'postgres',
-  host: 'localhost',
-  username: 'postgres',
-  password: '25369',
-  database: 'get_a_pet',
+const dbUrl = 'postgresql://postgres:25369@localhost:5432/get_a_pet'
+
+export const sequelize = new Sequelize(dbUrl, {
   define: {
     timestamps: true,
   },
-});
+})

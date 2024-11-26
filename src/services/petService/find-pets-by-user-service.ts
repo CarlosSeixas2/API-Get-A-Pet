@@ -1,11 +1,11 @@
 import { Request } from 'express'
 
-import UserRepository from '@repository/userRepository'
-import PetRepository from '@repository/petRepository'
+import UserRepository from '@repository/user-repository'
+import PetRepository from '@repository/pet-repository'
 
-import getToken from '@utils/getToken'
+import getToken from '@utils/get-token'
 
-import AppError from '@errors/AppError'
+import AppError from '@errors/app-error'
 
 export default class FindPetsByUserService {
   static async execute(req: Request) {

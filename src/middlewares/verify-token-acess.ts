@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
 import jwt from 'jsonwebtoken'
 
-import getToken from '@utils/getToken'
+import getToken from '@utils/get-token'
 
 import { env } from '@shared/env'
 

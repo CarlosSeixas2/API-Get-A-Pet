@@ -1,10 +1,10 @@
 import bcrypt from 'bcrypt'
 
-import AppError from '@errors/AppError'
+import AppError from '@errors/app-error'
 
-import UserRepository from '@repository/userRepository'
+import UserRepository from '@repository/user-repository'
 
-import getToken from '@utils/getToken'
+import getToken from '@utils/get-token'
 
 import { Request } from 'express'
 
@@ -14,7 +14,7 @@ interface IUserUpdated {
 
 export default class UpdateService {
   static async execute(req: Request) {
-    const { name, email, phone, password, avatar } = req.body
+    const { name, email, phone, password, image } = req.body
     const Keys = Object.keys(req.body)
 
     // const image = null
@@ -26,7 +26,7 @@ export default class UpdateService {
       throw new AppError('Usuário não encontrado', 404)
     }
 
-    if (!name && !email && !phone && !password && !avatar) {
+    if (!name && !email && !phone && !password && !image) {
       throw new AppError('Insira algo para atualizar')
     }
 

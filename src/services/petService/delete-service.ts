@@ -1,8 +1,8 @@
 import { Request } from 'express'
 
-import PetRepository from '@repository/petRepository'
+import PetRepository from '@repository/pet-repository'
 
-import AppError from '@errors/AppError'
+import AppError from '@errors/app-error'
 
 export default class DeleteService {
   static async execute(req: Request) {

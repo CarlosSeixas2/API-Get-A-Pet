@@ -6,10 +6,10 @@ import { env } from '@shared/env'
 
 interface IUserRegisterInterface {
   name: string
-  phone: string
+  phone?: string
   email: string
   password: string
-  avatar: string
+  image?: string
 }
 
 interface IUserToken {
@@ -19,6 +19,7 @@ interface IUserToken {
 export default class UserRepository {
   static async register(data: IUserRegisterInterface) {
     const query = await user.create(data)
+
     return query
   }
 

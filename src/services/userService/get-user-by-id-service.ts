@@ -1,8 +1,8 @@
 import { Request } from 'express'
 
-import UserRepository from '@repository/userRepository'
+import UserRepository from '@repository/user-repository'
 
-import AppError from '@errors/AppError'
+import AppError from '@errors/app-error'
 
 export default class GetUserByIdService {
   static async execute(req: Request) {

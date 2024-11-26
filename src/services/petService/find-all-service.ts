@@ -1,4 +1,4 @@
-import PetRepository from '@repository/petRepository'
+import PetRepository from '@repository/pet-repository'
 
 export default class FindAllService {
   static async execute() {

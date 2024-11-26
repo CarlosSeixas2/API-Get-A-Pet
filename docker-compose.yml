@@ -1,0 +1,10 @@
+services:
+  api-solid-pg:
+    image: bitnami/postgresql
+    container_name: get_a_pet
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_PASSWORD=25369
+      - POSTGRESQL_DATABASE=get_a_pet

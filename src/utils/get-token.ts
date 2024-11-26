@@ -1,6 +1,6 @@
 import { Request } from 'express'
 
-import AppError from '../errors/AppError'
+import AppError from '../errors/app-error'
 
 const getToken = (req: Request): string => {
   const authHeader = req.headers.authorization

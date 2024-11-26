@@ -2,34 +2,36 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const conn_1 = require("../db/conn");
-class User extends sequelize_1.Model {
-}
-User.init({
+class User extends sequelize_1.Model {}
+User.init(
+  {
     id: {
-        type: sequelize_1.DataTypes.INTEGER.UNSIGNED,
-        autoIncrement: true,
-        primaryKey: true,
+      type: sequelize_1.DataTypes.INTEGER.UNSIGNED,
+      autoIncrement: true,
+      primaryKey: true,
     },
     name: {
-        type: new sequelize_1.DataTypes.STRING(255),
-        allowNull: false,
+      type: new sequelize_1.DataTypes.STRING(255),
+      allowNull: false,
     },
     email: {
-        type: new sequelize_1.DataTypes.STRING(255),
-        allowNull: false,
+      type: new sequelize_1.DataTypes.STRING(255),
+      allowNull: false,
     },
     password: {
-        type: new sequelize_1.DataTypes.STRING(255),
-        allowNull: false,
+      type: new sequelize_1.DataTypes.STRING(255),
+      allowNull: false,
     },
-    avatar: {
-        type: new sequelize_1.DataTypes.STRING(255),
-        allowNull: false,
+    image: {
+      type: new sequelize_1.DataTypes.STRING(255),
+      allowNull: false,
     },
-}, {
+  },
+  {
     sequelize: conn_1.sequelize,
-    tableName: 'users',
-});
+    tableName: "users",
+  }
+);
 exports.default = User;
 // import { sequelize } from '../db/conn'
 // import { DataTypes } from 'sequelize'
@@ -46,7 +48,7 @@ exports.default = User;
 //   password: {
 //     type: DataTypes.STRING,
 //   },
-//   avatar: {
+//   image: {
 //     type: DataTypes.STRING,
 //   },
 // })

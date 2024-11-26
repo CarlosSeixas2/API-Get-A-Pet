@@ -1,4 +1,4 @@
-import AppError from '../errors/AppError'
+import AppError from '../errors/app-error'
 import multer from 'multer'
 import path from 'path'
 

@@ -1,12 +1,12 @@
 import { Request, Response } from 'express'
 
-import AppError from '@errors/AppError'
+import AppError from '@errors/app-error'
 
-import RegisterService from '@services/userService/RegisterService'
-import LoginService from '@services/userService/LoginService'
-import checkUserService from '@services/userService/CheckUserService'
-import GetUserByIdService from '@services/userService/GetUserByIdService'
-import UpdateUserService from '@services/userService/UpdateService'
+import RegisterService from '@services/userService/register-service'
+import LoginService from '@services/userService/login-service'
+import checkUserService from '@services/userService/check-user-service'
+import GetUserByIdService from '@services/userService/get-user-by-id-service'
+import UpdateUserService from '@services/userService/update-service'
 
 export default class UserController {
   static async register(req: Request, res: Response): Promise<Response> {

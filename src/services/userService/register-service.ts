@@ -1,11 +1,11 @@
 import { Request } from 'express'
 import bcrypt from 'bcrypt'
 
-import UserRepository from '@repository/userRepository'
+import UserRepository from '@repository/user-repository'
 
-import AppError from '@errors/AppError'
+import AppError from '@errors/app-error'
 
-import createUserToken from '@utils/createUserToken'
+import createUserToken from '@utils/create-user-token'
 
 interface ResponseTokenUser {
   message: string
@@ -14,7 +14,7 @@ interface ResponseTokenUser {
 
 export default class RegisterService {
   static async execute(req: Request): Promise<ResponseTokenUser> {
-    const { name, email, phone, avatar, password, confirmPassword } = req.body
+    const { name, email, phone, image, password, confirmPassword } = req.body
 
     if (!name || !email || !phone || !password || !confirmPassword) {
       throw new AppError('Preencha todos os campos')
@@ -37,7 +37,7 @@ export default class RegisterService {
       name,
       email,
       phone,
-      avatar,
+      image,
       password: hash,
     })
 

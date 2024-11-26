@@ -7,10 +7,11 @@ interface UserAttributes {
   phone: string
   email: string
   password: string
-  avatar: string
+  image: string
 }
 
-interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
+interface UserCreationAttributes
+  extends Optional<UserAttributes, 'id' | 'phone' | 'image'> {}
 
 class User
   extends Model<UserAttributes, UserCreationAttributes>
@@ -21,7 +22,7 @@ class User
   public phone!: string
   public email!: string
   public password!: string
-  public avatar!: string
+  public image!: string
 }
 
 User.init(
@@ -33,23 +34,18 @@ User.init(
     },
     name: {
       type: new DataTypes.STRING(255),
-      allowNull: false,
     },
     phone: {
       type: new DataTypes.STRING(255),
-      allowNull: false,
     },
     email: {
       type: new DataTypes.STRING(255),
-      allowNull: false,
     },
     password: {
       type: new DataTypes.STRING(255),
-      allowNull: false,
     },
-    avatar: {
+    image: {
       type: new DataTypes.STRING(255),
-      allowNull: false,
     },
   },
   {
@@ -59,26 +55,3 @@ User.init(
 )
 
 export default User
-
-// import { sequelize } from '../db/conn'
-// import { DataTypes } from 'sequelize'
-
-// const user = sequelize.define('users', {
-//   name: {
-//     type: DataTypes.STRING,
-//   },
-//   email: {
-//     type: DataTypes.STRING,
-//   },
-//   phone: {
-//     type: DataTypes.STRING,
-//   },
-//   password: {
-//     type: DataTypes.STRING,
-//   },
-//   avatar: {
-//     type: DataTypes.STRING,
-//   },
-// })
-
-// export default user

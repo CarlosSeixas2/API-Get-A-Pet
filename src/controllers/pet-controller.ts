@@ -1,8 +1,8 @@
 import { Request, Response } from 'express'
 
-import CreateService from '@services/petService/CreateService'
+import CreateService from '@services/petService/create-service'
 
-import AppError from '@errors/AppError'
+import AppError from '@errors/app-error'
 
 export default class PetController {
   static async create(req: Request, res: Response) {

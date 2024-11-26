@@ -1,13 +1,15 @@
 import Pet from '@models/pet'
 
 interface IPetCreateInterface {
+  name: string
   age: number
-  description: string
+  description?: string
   weight: number
   color: string
   images: string
-  userId: number
-  adopted: boolean
+  available?: boolean
+  user?: number
+  adopter?: number
 }
 
 export default class PetRepository {
@@ -41,9 +43,9 @@ export default class PetRepository {
     return query
   }
 
-  static async findPetByUserId(userId: number) {
+  static async findPetByUserId(user: number) {
     const query = await Pet.findAll({
-      where: { userId },
+      where: { user },
     })
 
     return query
@@ -51,7 +53,7 @@ export default class PetRepository {
 
   static async findAdopted() {
     const query = await Pet.findAll({
-      where: { adopted: true },
+      where: { available: true },
     })
 
     return query
