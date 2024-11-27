@@ -6,7 +6,7 @@ interface IPetCreateInterface {
   description?: string
   weight: number
   color: string
-  images: string
+  images?: string
   available?: boolean
   user?: number
   adopter?: number

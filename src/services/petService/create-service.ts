@@ -1,19 +1,27 @@
 import getToken from '@utils/get-token'
-import { Request, Response } from 'express'
+import { Request } from 'express'
 
-import UserRepository from '@repository/user-repository'
 import AppError from '@errors/app-error'
-import PetRepository from '@repository/pet-repository'
+import UserRepository from 'repositories/user-repository'
+import PetRepository from 'repositories/pet-repository'
+import { z } from 'zod'
 
 export default class CreateService {
-  static async execute(req: Request, res: Response) {
-    const { name, age, weight, color } = req.body
+  static async execute(req: Request) {
+    const createBodySchema = z.object({
+      name: z.string(),
+      age: z.number(),
+      description: z.string(),
+      weight: z.number(),
+      color: z.string(),
+    })
 
+    createBodySchema.parse(req.body)
+
+    const { name, age, description, weight, color } = req.body
+
+    const images = ''
     const available = true
-
-    if (!name || !age || !weight || !color) {
-      return res.status(400).json({ error: 'Campos faltando!' })
-    }
 
     const token = getToken(req)
 
@@ -26,10 +34,12 @@ export default class CreateService {
     const pet = await PetRepository.create({
       name,
       age,
+      description,
       weight,
       color,
+      images,
+      user: user.id,
       available,
-      userId: user.id,
     })
 
     return pet

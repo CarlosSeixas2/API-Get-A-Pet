@@ -17,7 +17,7 @@ interface PetAttributes {
 interface PetCreationAttributes
   extends Optional<
     PetAttributes,
-    'id' | 'description' | 'available' | 'user' | 'adopter'
+    'id' | 'description' | 'available' | 'user' | 'adopter' | 'images'
   > {}
 
 class Pet

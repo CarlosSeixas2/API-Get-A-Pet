@@ -1,11 +1,18 @@
 import { Request } from 'express'
 
-import PetRepository from '@repository/pet-repository'
+import PetRepository from 'repositories/pet-repository'
 
 import AppError from '@errors/app-error'
+import { z } from 'zod'
 
 export default class DeleteService {
   static async execute(req: Request) {
+    const deleteParamsSchema = z.object({
+      id: z.number(),
+    })
+
+    deleteParamsSchema.parse(req.params)
+
     const { id } = req.params
 
     const pet = await PetRepository.findById(Number(id))

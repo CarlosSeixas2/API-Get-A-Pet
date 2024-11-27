@@ -3,7 +3,7 @@ import jwt, { JwtPayload } from 'jsonwebtoken'
 
 import getToken from '@utils/get-token'
 
-import UserRepository from '@repository/user-repository'
+import UserRepository from 'repositories/user-repository'
 
 import { env } from '@shared/env'
 

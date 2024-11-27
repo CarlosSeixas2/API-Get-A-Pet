@@ -1,7 +1,7 @@
 import { Request } from 'express'
 import bcrypt from 'bcrypt'
 
-import UserRepository from '@repository/user-repository'
+import UserRepository from 'repositories/user-repository'
 
 import AppError from '@errors/app-error'
 

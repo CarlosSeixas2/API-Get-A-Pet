@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt'
 
 import AppError from '@errors/app-error'
 
-import UserRepository from '@repository/user-repository'
+import UserRepository from 'repositories/user-repository'
 
 import createUserToken from '@utils/create-user-token'
 

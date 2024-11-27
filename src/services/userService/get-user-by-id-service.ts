@@ -1,6 +1,6 @@
 import { Request } from 'express'
 
-import UserRepository from '@repository/user-repository'
+import UserRepository from 'repositories/user-repository'
 
 import AppError from '@errors/app-error'
 
